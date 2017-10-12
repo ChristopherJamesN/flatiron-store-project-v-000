@@ -4,5 +4,6 @@
 
 <% @items.available_items.each do |item| %>
   <p><%= item.title %></p>
-  <p>$<%= item.price.to_f/100 %> | <%= button_to 'Add to Cart', line_items_path(item_id: item) %></p>
+  <p>Inventory: <%= item.inventory %></p>
+  <p>Price: $<%= item.price.to_f/100 %> | <%= button_to 'Add to Cart', line_items_path(item_id: item) %></p>
 <% end %>

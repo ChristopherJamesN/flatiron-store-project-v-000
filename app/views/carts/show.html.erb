@@ -12,6 +12,8 @@
     <% end %> </p>
   <% end %>
 
+  <%= @current_cart.status %>
+
   <p>Order total: <strong>$<%= @current_cart.total.to_f/100 %></strong> </p>
 
   <%= button_to 'Checkout', checkout_path %>

@@ -12,7 +12,10 @@ class CartsController < ApplicationController
       item = Item.find(line_item.item_id)
       item.update(inventory: item.inventory - line_item.quantity)
     end
-    @current_cart.destroy
+    @current_cart.status = "Submitted"
+    @current_cart.save
+    current_user.current_cart = nil
+    current_user.save
     redirect_to "/carts/#{@current_cart.id}"
   end
 end
