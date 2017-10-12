@@ -1,7 +1,9 @@
 class CartsController < ApplicationController
   def show
-    if user_signed_in?
+    if user_signed_in? && current_user.current_cart != nil
       @current_cart = current_user.current_cart
+    else
+      redirect_to '/'
     end
   end
 
